@@ -1,0 +1,11 @@
+{
+  "WesCopyNumber.tumor_name": "String",
+  "WesCopyNumber.normal_name": "String",
+  "WesCopyNumber.tumor_bam": "File"
+  "WesCopyNumber.normal_bam": "File",
+  "WesCopyNumber.runGatk4cnv.pon": "File",
+  "WesCopyNumber.runGatk4cnv.targets_bed": "File",
+  "WesCopyNumber.runGatk4cnv.padding": "Int",
+  "WesCopyNumber.runGatk4cnv.ref_fasta": "File",
+  "WesCopyNumber.selectNormalHetSites.ref_snp": "File",
+}
