@@ -106,7 +106,7 @@ task selectNormalHetSites {
 	command {
 		callstats_ghet-filter.r \
 			${in} \
-			${out} \
+			${out_fname} \
 			--snp ${ref_snp}
 	}
 
