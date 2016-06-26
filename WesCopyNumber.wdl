@@ -23,7 +23,7 @@ workflow WesCopyNumber {
 		
 	call convertCallStatsToCov { input:
 		in = selectNormalHetSites.out,
-		out_fname = "${tumour_name}_germ-hets.cov"
+		out_fname = "${tumor_name}_germ-hets.cov"
 	}
 
 	call runAllelicCapseg { input:
@@ -35,18 +35,22 @@ workflow WesCopyNumber {
 }
 
 task runGatk4cnv {
-	File sample_name
+	String sample_name
 	File sample_bam
+	File sample_bai = sub(sample_bam, "\\.bam$", ".bai")
 	File ref_fasta
-	File targets_bed
+	File ref_fai = ref_fasta + ".fai"
+	File ref_dict = sub(ref_fasta, "\\.fasta$", ".dict")
+	File  targets_bed
 	Int padding
 	File pon
 
 	command {
 		ln -s ${sample_bam} ${sample_name}.bam
-		ln -s ${sample_bam}.bai ${sample_name}.bam.bai
+		ln -s ${sample_bai} ${sample_name}.bai
+		echo '${sample_name}.bam' > sample_bam.txt
 		gatk4cnv \
-			--caseinput <$(echo ${sample_name}.bam) \
+			-i sample_bam.txt \
 			--reference ${ref_fasta} \
 			--intervalfile ${targets_bed} \
 			--padding ${padding} \
@@ -69,6 +73,9 @@ task callSnvsOnPair {
 	String normal_name
 	File tumor_bam
 	File normal_bam
+
+	File tumor_bai = sub(tumor_bam, "\\.bam$", ".bai")
+	File normal_bai = sub(normal_bam, "\\.bam$", ".bai")
 	
 	command {
 		mutect \
