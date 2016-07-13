@@ -1,0 +1,11 @@
+{
+  "WesCopyNumber.tumor_name": "LS-026-P",
+  "WesCopyNumber.normal_name": "LS-026-N",
+  "WesCopyNumber.tumor_bam": "/seq/picard_aggregation/RP-328/Exome/LS-026-P/v1/LS-026-P.bam",
+  "WesCopyNumber.normal_bam": "/seq/picard_aggregation/RP-328/Exome/LS-026-N/v2/LS-026-N.bam",
+  "WesCopyNumber.runGatk4cnv.pon": "/xchip/scarter/dshih/local/opt/gatk4cnv-20160112/pons/ice_female_pd250/create_pon/ice_female_pd250_spark.pon",
+  "WesCopyNumber.runGatk4cnv.targets_bed": "/xchip/scarter/dshih/local/opt/gatk4cnv-20160112/targets/CRSP_ICE_hg19_wex_illumina_v1.no_Y_MT_PARs.bed",
+  "WesCopyNumber.runGatk4cnv.padding": 250,
+  "WesCopyNumber.runGatk4cnv.ref_fasta": "/seq/references/Homo_sapiens_assembly19/v1/Homo_sapiens_assembly19.fasta",
+  "WesCopyNumber.selectNormalHetSites.ref_snp": "/xchip/scarter/dshih/data/ucsc/hg19/snp146Common-filtered.rds"
+}

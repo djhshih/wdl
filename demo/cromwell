@@ -1,0 +1,9 @@
+#!/bin/bash
+/broad/software/free/Linux/redhat_6_x86_64/pkgs/jdk1.8.0_92/bin/java \
+	-Xmx1G \
+	-Dbackend.providers.Local.config.filesystems.local.localization.0=soft-link \
+	-jar /home/unix/dshih/java/cromwell.jar \
+	"$@"
+
+# -Dbackend.shared-filesystem.localization.0=soft-link \
+#	-Dbackend.backend=local \
