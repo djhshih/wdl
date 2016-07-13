@@ -18,12 +18,12 @@ workflow WesCopyNumber {
 
 	call selectNormalHetSites { input:
 		in = callSnvsOnPair.call_stats,
-		out_fname = "${tumor_name}_germ-hets.call_stats"
+		out_fname = "${tumor_name}_ghet.call_stats.txt"
 	}	
 		
 	call convertCallStatsToCov { input:
 		in = selectNormalHetSites.out,
-		out_fname = "${tumor_name}_germ-hets.cov"
+		out_fname = "${tumor_name}_ghet.cov"
 	}
 
 	call runAllelicCapseg { input:
@@ -127,7 +127,7 @@ task convertCallStatsToCov {
 	String out_fname
 	
 	command {
-		covstats2cov.r \
+		callstats2cov.r \
 			${in} \
 			--output ${out_fname}
 	}
@@ -152,7 +152,7 @@ task runAllelicCapseg {
 	}
 
 	output {
-		File out_rds = "${sample_name}.rds"
+		File out_rds = "${sample_name}.AllelicCapseg.rds"
 		File out_tsv = "results/${sample_name}.tsv"
 	}
 }
